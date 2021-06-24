@@ -16,11 +16,18 @@ public class CustomerController {
 
     @GetMapping(value = "/customers")
     public ResponseEntity getCustomersByCourse(
+            @RequestParam(required = false, name = "course") String course,
             @RequestParam(required = false, name = "town") String town,
-            @RequestParam(required = false, name = "course") String course)
+            @RequestParam(required = false, name = "age") Integer age)
 
     {
-        // GET /customers?course=Javascript
+
+        // GET /customers?course=Javascript&town=Edinburgh&age=46
+        if (town != null && age != null && course !=null) {
+            return new ResponseEntity((customerRepository.findByTownAndAgeGreaterThanAndBookingsCourseName(town, age, course)), HttpStatus.OK);
+        }
+
+        // GET /customers?course=Javascript&town=Edinburgh
         if (town != null && course!= null) {
             return new ResponseEntity((customerRepository.findByTownAndBookingsCourseName(town, course)), HttpStatus.OK);
         }
