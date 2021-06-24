@@ -48,11 +48,11 @@ public class DataLoader implements ApplicationRunner {
         Course course4 = new Course("SQL", "Glasgow", 2);
         courseRepo.save(course4);
 
-        Booking bobs_booking = new Booking("22/07/2021", course1, customer1);
+        Booking bobs_booking = new Booking("22-07-2021", course1, customer1);
         bookingRepo.save(bobs_booking);
-        Booking geraldines_booking = new Booking("23/05/2021", course1, customer2);
+        Booking geraldines_booking = new Booking("23-05-2021", course1, customer2);
         bookingRepo.save(geraldines_booking);
-        Booking clive_booking = new Booking("25/04/2021", course2, customer3);
+        Booking clive_booking = new Booking("25-04-2021", course2, customer3);
         bookingRepo.save(clive_booking);
 
 

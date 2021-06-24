@@ -25,13 +25,14 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
 
-
     public Customer(String name, String town, Integer age) {
         this.name = name;
         this.town = town;
         this.age = age;
         this.bookings = new ArrayList<>();
+    }
 
+    public Customer() {
     }
 
     public String getName() {
@@ -66,8 +67,12 @@ public class Customer {
         this.id = id;
     }
 
-    public void addBooking(Booking booking) {
-        this.bookings.add(booking);
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 
 }
