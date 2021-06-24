@@ -24,17 +24,17 @@ public class CustomerController {
 
         // GET /customers?course=Javascript&town=Edinburgh&age=46
         if (town != null && age != null && course !=null) {
-            return new ResponseEntity((customerRepository.findByTownAndAgeGreaterThanAndBookingsCourseName(town, age, course)), HttpStatus.OK);
+            return new ResponseEntity((customerRepository.findByTownAndAgeGreaterThanAndBookingsCourseNameIgnoreCase(town, age, course)), HttpStatus.OK);
         }
 
         // GET /customers?course=Javascript&town=Edinburgh
         if (town != null && course!= null) {
-            return new ResponseEntity((customerRepository.findByTownAndBookingsCourseName(town, course)), HttpStatus.OK);
+            return new ResponseEntity((customerRepository.findByTownAndBookingsCourseNameIgnoreCase(town, course)), HttpStatus.OK);
         }
 
         // GET /customers?course=Javascript
         if (course != null) {
-            return new ResponseEntity(customerRepository.findByBookingsCourseName(course), HttpStatus.OK);
+            return new ResponseEntity(customerRepository.findByBookingsCourseNameIgnoreCase(course), HttpStatus.OK);
         }
 
         return new ResponseEntity(customerRepository.findAll(), HttpStatus.OK);

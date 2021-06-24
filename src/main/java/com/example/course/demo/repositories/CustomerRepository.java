@@ -10,10 +10,10 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     // Get all customers for a given course
-    List<Customer> findByBookingsCourseName(String course);
+    List<Customer> findByBookingsCourseNameIgnoreCase(String course);
 
     // Get all customers in a given town for a given course
-    List<Customer> findByTownAndBookingsCourseName(String town, String course);
+    List<Customer> findByTownAndBookingsCourseNameIgnoreCase(String town, String course);
 
-    List<Customer> findByTownAndAgeGreaterThanAndBookingsCourseName(String town, Integer age, String course);
+    List<Customer> findByTownAndAgeGreaterThanAndBookingsCourseNameIgnoreCase(String town, Integer age, String course);
 }
